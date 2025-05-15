@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/manos.css">
+    <link rel="stylesheet" href="css/general.css">
+
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay"></div>
+        <h1>Explora el Lenguaje de Señas</h1>
+    </header>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Acerca de Nosotros</a></li>
+            <li><a href="#traductor">Traductor</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+        </ul>
+    </nav>
+    <div class="text-container fade-in">
+        <h2 class="title situacion">Situación</h2>
+        <p>En Colombia, cerca de 459,772 personas viven con discapacidad auditiva, enfrentándose a barreras significativas en su comunicación diaria. Aunque existen intérpretes de lenguaje de señas, su disponibilidad es limitada, lo que dificulta la interacción en entornos laborales, educativos y sociales. Esta falta de comunicación efectiva no solo incrementa la discriminación, sino que también limita las oportunidades de inclusión y desarrollo personal y profesional de las personas sordomudas.</p>
+    </div>
+    <div class="text-container fade-in">
+        <h2 class="subtitulo">Aporte</h2>
+        <p>Estamos transformando la comunicación y derribando barreras para la comunidad sordomuda. Nuestra aplicación facilita la interacción diaria entre personas sordomudas y oyentes, creando un puente que promueve la inclusión y mejora la calidad de vida. Con esta herramienta, no solo damos voz a quienes la necesitan, sino que también sensibilizamos a la sociedad hacia una mayor equidad y respeto por la diversidad.</p>
+    </div>
+    <!-- Sección de gráficas -->
+<div class="charts-container fade-in">
+    <h2>Datos en contexto</h2>
+    <div class="chart-box fade-in">
+        <canvas id="chart1"></canvas>
+    </div>
+    <div class="chart-box fade-in">
+        <canvas id="chart2"></canvas>
+    </div>
+</div>        
+    <div class="info-box fade-in">
+        <h2 class="recuadro">¿Necesitas más información?</h2>
+        <button class="comunicate" onclick="openTab(event, 'about-us')">Comunícate con nosotros</button>
+    </div>
+    <div class="frase fade-in">
+        <h2>"Rompiendo Barreras, Conectando Mundos: La app que transforma señas en palabras para una comunicación sin límites."</h2>
+    </div>
+
+    <div class="video-container fade-in">
+        <video controls>
+            <source src="Y2meta.app-¿La lengua de señas es universal_.mp4" type="video/mp4">
+        </video>
+        <div class="text-content fade-in">
+            <h3>Video ilustrativo de la realidad cultural de las personas sordomudas</h3>
+            <p>Agradecimientos al canal de CuriosaMente por prestar los derechos de autor para fines educativos.</p>
+            <p>
+                Haz clic en el siguiente enlace para visitar el canal de YouTube:
+                <a href="https://www.youtube.com/curiosamente" target="_blank">CuriosaMente</a>
+            </p>
+        </div>
+    </div>
+
+<div class="hand left-hand">
+    <img src="assets/left-hand copy 2.png" alt="Mano izquierda">
+</div>
+
+<div class="hand right-hand">
+    <img src="assets/right-hand.png.png" alt="Mano derecha">
+</div>
+
+<div class="content fade-in">
+    <h1>Bienvenido a la aplicación de lenguaje de señas</h1>
+    <a href="#traductor" class="start-button">Iniciar</a>
+    <div style="height: 2000px;"></div> <!-- Simula más contenido -->
+</div>
+
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Información y descripción de la app -->
+        <div class="footer-section">
+            <h4>SilentEcho</h4>
+            <p>SilentEcho es una aplicación inclusiva que permite la comunicación entre personas sordomudas y oyentes mediante conversión de lenguaje de señas y voz en tiempo real.</p>
+            <p>&copy; 2024 SilentEcho. Todos los derechos reservados.</p>
+        </div>
+        <!-- Servicios de la app -->
+        <div class="footer-section">
+            <h4>Servicios</h4>
+            <p><a href="#">Traducción de Lenguaje de Señas</a></p>
+            <p><a href="#">Conversión de Texto a Voz</a></p>
+            <p><a href="#">Accesibilidad Inclusiva</a></p>
+        </div>
+        <!-- Redes Sociales -->
+        <div class="footer-section social-app">
+            <h4>Conéctate con nosotros</h4>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                    <img src="facebook imagen.webp" alt="Facebook" width="50" height="50">
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                    <img src="ximagen.png" alt="Twitter" width="50" height="50">
+                    <span>Twitter</span>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                    <img src="instagram.png" alt="Instagram" width="50" height="50">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://chat.whatsapp.com/CkvgU30Z2QH6t4MaCLR8qS" target="_blank" class="social-icon">
+                    <img src="whasapt.webp" alt="WhatsApp" width="50" height="50">
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="footer-section newsletter">
+            <h4>Únete a nuestro boletín</h4>
+            <input type="email" placeholder="Tu correo electrónico">
+            <button>Suscribirse</button>
+        </div>
+    </div>
+    <!-- Línea divisoria -->
+    <div class="footer-line"></div>
+    <!-- Información de contacto inferior -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 SilentEcho</p>
+        <div class="contact-info">
+            <p>Colombia</p>
+            <p><a href="mailto:softwaretrabajo246@gmail.com">softwaretrabajo246@gmail.com</a></p>
+            <p>(123) 456-7890</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/scroll-animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/graficas.js"></script>
+</body>
+</html>
