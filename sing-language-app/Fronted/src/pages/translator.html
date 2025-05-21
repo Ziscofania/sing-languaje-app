@@ -3,17 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de Lenguaje de Señas</title>
     <link rel="stylesheet" href="../css/navbar.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/translator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#nosotros">Acerca de Nosotros</a></li>
-            <li><a href="#traductor">Traductor</a></li>
-            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="nosotros.html">Acerca de Nosotros</a></li>
+            <li><a href="translator.html" class="active">Traductor</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
         </ul>
     </nav>
+
+    <main class="translator-container">
+        <h1 class="title">Traductor de Lenguaje de Señas</h1>
+        <p class="subtitle">Conectando mundos a través de la tecnología</p>
+        
+        <div class="translation-boxes">
+            <div class="input-box">
+                <h2>Entrada</h2>
+                <div class="input-options">
+                    <button id="startCamera" class="btn btn-primary">
+                        <i class="fas fa-video"></i> Activar Cámara
+                    </button>
+                    <button id="stopCamera" class="btn btn-secondary" disabled>
+                        <i class="fas fa-video-slash"></i> Desactivar
+                    </button>
+                    <button id="startMic" class="btn btn-primary">
+                        <i class="fas fa-microphone"></i> Usar Micrófono
+                    </button>
+                </div>
+                <div class="video-container">
+                    <video id="cameraFeed" autoplay muted playsinline></video>
+                    <canvas id="signCanvas" width="640" height="480"></canvas>
+                </div>
+                <textarea id="textInput" placeholder="Escribe aquí o habla para traducir a señas..."></textarea>
+                <div class="action-buttons">
+                    <button id="translateToSign" class="btn btn-accent">
+                        <i class="fas fa-sign-language"></i> Traducir a Señas
+                    </button>
+                    <button id="clearInput" class="btn btn-secondary">
+                        <i class="fas fa-trash-alt"></i> Limpiar
+                    </button>
+                </div>
+            </div>
+            
+            <div class="output-box">
+                <h2>Salida</h2>
+                <div class="output-display">
+                    <div id="signOutput" class="sign-animation">
+                        <div class="sign-placeholder">
+                            <i class="fas fa-hands-helping"></i>
+                            <p>La traducción aparecerá aquí</p>
+                        </div>
+                    </div>
+                    <div id="textOutput" class="text-output">
+                        <p id="translatedText">Las señas se traducirán a texto aquí</p>
+                    </div>
+                    <div class="voice-controls">
+                        <button id="playVoice" class="btn btn-primary">
+                            <i class="fas fa-volume-up"></i> Escuchar
+                        </button>
+                        <button id="copyText" class="btn btn-secondary">
+                            <i class="fas fa-copy"></i> Copiar Texto
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Mantener todo lo anterior y agregar esta sección -->
+<div class="sign-display-system">
+    <h2>Sistema de Visualización</h2>
+    <div class="sign-input-container">
+        <input type="text" id="wordInput" placeholder="Escribe una palabra" maxlength="20">
+        <button id="displaySigns" class="btn btn-accent">
+            <i class="fas fa-play"></i> Mostrar Señas
+        </button>
+    </div>
+    
+    <div class="sequence-display">
+        <div id="currentSign" class="sign-image-container">
+            <p class="instruction">La secuencia de señas aparecerá aquí</p>
+        </div>
+        <div class="sequence-controls">
+            <button id="pauseSequence" class="btn btn-secondary" disabled>
+                <i class="fas fa-pause"></i> Pausar
+            </button>
+            <button id="stopSequence" class="btn btn-secondary" disabled>
+                <i class="fas fa-stop"></i> Detener
+            </button>
+        </div>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-info">
+            <span id="currentLetter"></span>
+            <span id="progressText">0/0</span>
+        </div>
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+    </div>
+</div>
+        <div class="history-section">
+            <h3>Historial de Traducciones</h3>
+            <ul id="historyList">
+                <!-- Las traducciones anteriores aparecerán aquí -->
+            </ul>
+        </div>
+    </main>
+
+    <div class="floating-help">
+        <button id="helpButton" class="btn-help">
+            <i class="fas fa-question-circle"></i>
+        </button>
+        <div id="helpPanel" class="help-panel">
+            <h4>¿Cómo usar el traductor?</h4>
+            <ol>
+                <li>Activa la cámara para interpretar tus señas</li>
+                <li>Usa el micrófono para hablar y traducir a señas</li>
+                <li>O escribe directamente en el cuadro de texto</li>
+                <li>Presiona "Traducir" para obtener resultados</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="../js/translator.js"></script>
 </body>
 </html>
