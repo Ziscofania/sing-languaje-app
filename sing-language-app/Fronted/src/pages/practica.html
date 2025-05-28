@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Práctica de Lenguaje de Señas</title>
+  <link rel="stylesheet" href="/sing-languaje-app/sing-language-app/Fronted/src/css/practica.css" />
+</head>
+<body>
+  <h1>Traductor de Lenguaje de Señas</h1>
+  <input type="text" id="entradaTexto" placeholder="Escribe una palabra...">
+  <button onclick="mostrarImagenes()">Traducir</button>
+  <button onclick="repetir()">Repetir</button>
+
+  <div id="contenedorImagenes"></div>
+
+  <script>
+    let ultimaPalabra = '';
+
+    async function mostrarImagenes() {
+      const contenedor = document.getElementById('contenedorImagenes');
+      contenedor.innerHTML = '';
+      const texto = document.getElementById('entradaTexto').value.toLowerCase();
+      ultimaPalabra = texto;
+
+      for (let i = 0; i < texto.length; i++) {
+        const letra = texto[i];
+
+        if (letra === ' ') continue; // Ignorar espacios
+
+        try {
+          const res = await fetch(`http://localhost:3000/api/abecedario/${letra}`);
+          const data = await res.json();
+
+          const img = document.createElement('img');
+          img.src = `http://localhost:3000${data.imagen_url}`;
+          img.alt = letra;
+          img.style.width = '150px';
+
+          contenedor.appendChild(img);
+          await new Promise(resolve => setTimeout(resolve, 3000)); // Espera 3 segundos
+          img.remove();
+        } catch (err) {
+          console.error(`Letra no encontrada: ${letra}`);
+        }
+      }
+    }
+
+    function repetir() {
+      document.getElementById('entradaTexto').value = ultimaPalabra;
+      mostrarImagenes();
+    }
+  </script>
+</body>
+</html>
