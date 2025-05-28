@@ -17,22 +17,6 @@ La aplicación web está organizada en diferentes módulos que trabajan en conju
 - **Traducción texto ↔ señas**: Traducción en tiempo real desde texto a representaciones visuales o animaciones de señas.
 - **Navegación accesible**: Interfaz adaptable, con navegación clara y fácil para cualquier tipo de usuario.
 
-## Estructura del Proyecto
-sign-language-app/
-├── Backend/ # Lógica de procesamiento futura (servidor)
-├── Fronted/
-│ ├── public/ # Archivos estáticos accesibles (index.html, videos, assets)
-│ │ ├── index.html
-│ │ └── ...
-│ ├── src/ # Código fuente
-│ │ ├── css/ # Estilos (general, navbar, manos)
-│ │ ├── js/ # Scripts JS (scroll, navbar, gráficas)
-│ │ ├── pages/ # Páginas como about.html, translator.html
-│ │ └── components/ # Componentes HTML reutilizables como navbar.html
-├── .gitignore
-└── README.md
-
-
 ---
 
 ## 🚀 Tecnologías Usadas
