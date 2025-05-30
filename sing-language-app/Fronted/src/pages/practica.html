@@ -5,51 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Práctica de Lenguaje de Señas</title>
   <link rel="stylesheet" href="/sing-languaje-app/sing-language-app/Fronted/src/css/practica.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/sing-languaje-app/sing-language-app/Fronted/src/css/navbar.css">
+  <link rel="stylesheet" href="/sing-languaje-app/sing-language-app/Fronted/src/css/navbar2.css">
 </head>
 <body>
-  <h1>Traductor de Lenguaje de Señas</h1>
-  <input type="text" id="entradaTexto" placeholder="Escribe una palabra...">
-  <button onclick="mostrarImagenes()">Traducir</button>
-  <button onclick="repetir()">Repetir</button>
+  <div class="container">
+    <h1>Práctica de Lenguaje de Señas</h1>
 
-  <div id="contenedorImagenes"></div>
+  <nav class="navbar2">
+        <div class="navbar-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/sing-languaje-app/sing-language-app/index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="/sing-languaje-app/sing-language-app/Fronted/src/pages/about.html" class="nav-link">Acerca de Nosotros</a></li>
+                <li class="nav-item"><a href="/sing-languaje-app/sing-language-app/Fronted/src/pages/practica.html" class="nav-link">Traductor</a></li>
+                <li class="nav-item"><a href="src/pages/courses.html" class="nav-link">Cursos</a></li>
+            </ul>
+        </div>
+  </nav>
+    
+    <div class="input-group">
+      <input type="text" id="entradaTexto" placeholder="Escribe una palabra o frase...">
+      <button onclick="iniciarAnimacion()">Traducir</button>
+    </div>
+    
+    <div class="word-display" id="wordDisplay"></div>
+    
+    <div class="letter-progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="current-letter-display" id="currentLetterDisplay"></div>
+    
+    <div id="contenedorImagenes"></div>
+    
+    <div class="controls">
+      <button onclick="repetir()">Repetir</button>
+      <button onclick="detener()">Detener</button>
+    </div>
+  </div>
 
-  <script>
-    let ultimaPalabra = '';
-
-    async function mostrarImagenes() {
-      const contenedor = document.getElementById('contenedorImagenes');
-      contenedor.innerHTML = '';
-      const texto = document.getElementById('entradaTexto').value.toLowerCase();
-      ultimaPalabra = texto;
-
-      for (let i = 0; i < texto.length; i++) {
-        const letra = texto[i];
-
-        if (letra === ' ') continue; // Ignorar espacios
-
-        try {
-          const res = await fetch(`http://localhost:3000/api/abecedario/${letra}`);
-          const data = await res.json();
-
-          const img = document.createElement('img');
-          img.src = `http://localhost:3000${data.imagen_url}`;
-          img.alt = letra;
-          img.style.width = '150px';
-
-          contenedor.appendChild(img);
-          await new Promise(resolve => setTimeout(resolve, 3000)); // Espera 3 segundos
-          img.remove();
-        } catch (err) {
-          console.error(`Letra no encontrada: ${letra}`);
-        }
-      }
-    }
-
-    function repetir() {
-      document.getElementById('entradaTexto').value = ultimaPalabra;
-      mostrarImagenes();
-    }
-  </script>
+  <script src="/sing-languaje-app/sing-language-app/Fronted/src/js/practica.js"></script>
 </body>
 </html>
